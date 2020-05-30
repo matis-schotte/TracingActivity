@@ -5,6 +5,11 @@ Creation of a tracing activity can fail, but all blocks will always be executed.
 The return values will inform if the code was executed inside the activity (success = true) or not.
 Nesting of activities is encouraged for dependening sub-tasks.
 
+iOS 10+
+macOS 10.12+
+tvOS 10+
+watchOS 3+
+
 Block-based activity tracing once:
 ```
 _ = UNTracingActivity.initiate("Activity") {
