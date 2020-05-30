@@ -27,3 +27,5 @@ defer {
 	scope?.leave()
 }
 ```
+
+## Copyright © 2020 Matis Schotte
