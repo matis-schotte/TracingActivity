@@ -74,6 +74,14 @@ defer {
 [//]: # (Example: See the example project inside the `examples/` folder.)
 
 ## ToDo
+- Add SwiftLint (by adding xcodeproj: `swift package generate-xcodeproj`, helps support Xcode Server, too)
+- Add Travis CI (without xcodeproj see [reddit](https://www.reddit.com/r/iOSProgramming/comments/d7oyvh/configure_travis_ci_on_github_to_build_ios_swift/), [medium](https://medium.com/@aclaytonscott/creating-and-distributing-swift-packages-132444f5dd1))
+- Add codecov
+- Add codebeat
+- Add codeclimate
+- Add codetriage
+- Add jazzy docs
+- Add CHANGELOG.md
 - Clean api docs
 - Add Carthage support
 - Add Cocoapods support
