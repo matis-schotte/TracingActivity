@@ -1,11 +1,11 @@
 # UNTracingActivity
 
-[![build](https://img.shields.io/badge/build-passing-success)](#)
-[![tests](https://img.shields.io/badge/tests-passing-success)](#)
-[![language](https://img.shields.io/badge/language-swift-important)](#)
+[build](https://img.shields.io/badge/build-passing-success)
+[tests](https://img.shields.io/badge/tests-passing-success)
+[language](https://img.shields.io/badge/language-swift-important)
 [![license](https://img.shields.io/github/license/matis-schotte/UNTracingActivity.svg)](./LICENSE)
 
-[![platform](https://img.shields.io/badge/platform-iOS%20|%20macOS%20|%20tvOS%20|%20watchOS-lightgrey.svg)](#)
+[platform](https://img.shields.io/badge/platform-iOS%20|%20macOS%20|%20tvOS%20|%20watchOS-lightgrey.svg)
 [![Twitter](https://img.shields.io/badge/twitter-@matis_schotte-blue.svg)](http://twitter.com/matis_schotte)
 
 <!--
@@ -19,8 +19,8 @@
 [![Open Source Helpers](https://www.codetriage.com/matis-schotte/vifra/badges/users.svg)](https://www.codetriage.com/matis-schotte/vifra)
 -->
 
-[![Ethereum](https://img.shields.io/badge/ethereum-0x25C93954ad65f1Bb5A1fd70Ec33f3b9fe72e5e58-yellowgreen.svg)](#)
-[![Litecoin](https://img.shields.io/badge/litecoin-MPech47X9GjaatuV4sQsEzoMwGMxKzdXaH-lightgrey.svg)](#)
+[Ethereum](https://img.shields.io/badge/ethereum-0x25C93954ad65f1Bb5A1fd70Ec33f3b9fe72e5e58-yellowgreen.svg)
+[Litecoin](https://img.shields.io/badge/litecoin-MPech47X9GjaatuV4sQsEzoMwGMxKzdXaH-lightgrey.svg)
 
 UNTracingActivity is a small swift package which provides Apples Activity Tracing as part of Unified Logging for pure Swift applications.
 Creation of a tracing activity can fail, but all blocks will always be executed.
@@ -43,7 +43,7 @@ Once you have your Swift package set up, adding Vifra as a dependency is as easy
 
 ```swift
 dependencies: [
-.package(url: "https://github.com/matis-schotte/UNTracingActivity.git", from: "0.1.0")
+	.package(url: "https://github.com/matis-schotte/UNTracingActivity.git", from: "0.1.0")
 ]
 ```
 
