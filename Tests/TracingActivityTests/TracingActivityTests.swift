@@ -1,17 +1,17 @@
 import XCTest
-@testable import UNTracingActivity
+@testable import TracingActivity
 
-final class UNTracingActivityTests: XCTestCase {
+final class TracingActivityTests: XCTestCase {
 	func testInitiate() throws {
 		let blockExecutedInActivity = expectation(description: "testInitiate.blockExecutedInActivity")
 		let blockExecuted = expectation(description: "testInitiateblockExecuted")
 		
-		_ = UNTracingActivity.initiate("ActivitySuccess") {
+		_ = TracingActivity.initiate("ActivitySuccess") {
 			blockExecutedInActivity.fulfill()
 		}
 		
 		// when dso is nil the activity cannot be created
-		_ = UNTracingActivity.initiate("", dso: nil) {
+		_ = TracingActivity.initiate("", dso: nil) {
 			blockExecuted.fulfill()
 		}
 		
@@ -19,16 +19,16 @@ final class UNTracingActivityTests: XCTestCase {
 	}
 	
 	func testFailableInit() throws {
-		XCTAssertNotNil(UNTracingActivity("ActivitySuccess"))
+		XCTAssertNotNil(TracingActivity("ActivitySuccess"))
 		
-		XCTAssertNil(UNTracingActivity("", dso: nil))
+		XCTAssertNil(TracingActivity("", dso: nil))
 	}
 	
 	func testStaticApplyPositive() throws {
 		let blockExecutedInActivity = expectation(description: "testApply.blockExecutedInActivity")
 		
-		let activitySuccess = UNTracingActivity("ActivitySuccess")
-		let result = UNTracingActivity.apply(activitySuccess) {
+		let activitySuccess = TracingActivity("ActivitySuccess")
+		let result = TracingActivity.apply(activitySuccess) {
 			blockExecutedInActivity.fulfill()
 		}
 		XCTAssertTrue(result)
@@ -40,8 +40,8 @@ final class UNTracingActivityTests: XCTestCase {
 		let blockExecuted = expectation(description: "testStaticApply.blockExecuted")
 		
 		// when dso is nil the activity cannot be created
-		let activityFailure = UNTracingActivity("", dso: nil)
-		let result = UNTracingActivity.apply(activityFailure) {
+		let activityFailure = TracingActivity("", dso: nil)
+		let result = TracingActivity.apply(activityFailure) {
 			blockExecuted.fulfill()
 		}
 		XCTAssertFalse(result)
@@ -52,7 +52,7 @@ final class UNTracingActivityTests: XCTestCase {
 	func testEnterLeaveScope() throws {
 		var scopeChanged = false
 		
-		let activity = UNTracingActivity("TestActivity")
+		let activity = TracingActivity("TestActivity")
 		var scope = activity?.enter() {
 			didSet { scopeChanged.toggle() }
 		}

@@ -1,7 +1,7 @@
 import XCTest
 
-import UNTracingActivityTests
+import TracingActivityTests
 
 var tests = [XCTestCaseEntry]()
-tests += UNTracingActivityTests.allTests()
+tests += TracingActivityTests.allTests()
 XCTMain(tests)

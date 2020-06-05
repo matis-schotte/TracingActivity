@@ -1,5 +1,5 @@
 //
-//  UNTracingActivity
+//  TracingActivity
 //
 //  Created by Matis Schotte for Nera on 2020/05/29.
 //  Copyright © 2020 ungeord.net. All rights reserved.
@@ -22,20 +22,20 @@ Activity Tracing
 
 Block-based activity tracing once:
 ```
-_ = UNTracingActivity.initiate("Activity") {
+_ = TracingActivity.initiate("Activity") {
 	// ... os_log stuff
 }
 ```
 Activity tracing for multiple blocks:
 ```
-let activity: UNTracingActivity? = UNTracingActivity("Activity")
-_ = UNTracingActivity.apply(activity) {
+let activity: TracingActivity? = TracingActivity("Activity")
+_ = TracingActivity.apply(activity) {
 	// ... os_log stuff
 }
 ```
 Scope-based activity tracing:
 ```
-let activity: UNTracingActivity? = UNTracingActivity("Activity2")
+let activity: TracingActivity? = TracingActivity("Activity2")
 var scope = activity?.enter()
 // ... os_log stuff
 defer {
@@ -43,7 +43,7 @@ defer {
 }
 ```
 */
-public struct UNTracingActivity {
+public struct TracingActivity {
 	private let activity: os_activity_t
 	
 	/// Creates an os_activity_t object which can be passed to os_activity_apply
@@ -68,7 +68,7 @@ public struct UNTracingActivity {
 	///
 	/// If the OS_ACTIVITY_FLAG_IF_NONE_PRESENT flag is passed, then passing another
 	/// value than OS_ACTIVITY_CURRENT to the parent_activity argument is undefined.
-	public init?(_ description: StaticString, dso: UnsafeRawPointer? = #dsohandle, parent: UNTracingActivity = .current, options: Options = []) {
+	public init?(_ description: StaticString, dso: UnsafeRawPointer? = #dsohandle, parent: TracingActivity = .current, options: Options = []) {
 		let createdActivity: os_activity_t? = description.withUTF8Buffer {
 			guard let dso = UnsafeMutableRawPointer(mutating: dso), let address = $0.baseAddress else {
 				return nil
@@ -108,17 +108,17 @@ public struct UNTracingActivity {
 }
 
 // MARK: - Static members
-extension UNTracingActivity {
+extension TracingActivity {
 	/// Create activity with no current traits, this is the equivalent of a
 	/// detached activity.
-	public static var none: UNTracingActivity {
-		return UNTracingActivity(OS_ACTIVITY_NONE)
+	public static var none: TracingActivity {
+		return TracingActivity(OS_ACTIVITY_NONE)
 	}
 	
 	/// Create activity and links to the current activity if one is present.
 	/// If no activity is present it is treated as if it is detached.
-	public static var current: UNTracingActivity {
-		return UNTracingActivity(OS_ACTIVITY_CURRENT)
+	public static var current: TracingActivity {
+		return TracingActivity(OS_ACTIVITY_CURRENT)
 	}
 	
 	/// Synchronously initiates an activity using the provided block and creates
@@ -175,7 +175,7 @@ extension UNTracingActivity {
 	/// OS_ACTIVITY_NONE.
 	/// Takes care of always executing the body block, regardless of the activity being created successfully
 	@discardableResult
-	public static func apply(_ activity: UNTracingActivity?, execute body: @convention(block) () -> ()) -> Bool {
+	public static func apply(_ activity: TracingActivity?, execute body: @convention(block) () -> ()) -> Bool {
 		guard let unwrappedActivity = activity else {
 			body()
 			return false
@@ -187,7 +187,7 @@ extension UNTracingActivity {
 }
 
 // MARK: - Options and Scope structs
-extension UNTracingActivity {
+extension TracingActivity {
 	/// Support flags for os_activity_create or os_activity_start.
 	public struct Options: OptionSet {
 		public let rawValue: UInt32
