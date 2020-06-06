@@ -18,7 +18,10 @@ fileprivate let OS_ACTIVITY_NONE = unsafeBitCast(dlsym(UnsafeMutableRawPointer(b
 fileprivate let OS_ACTIVITY_CURRENT = unsafeBitCast(dlsym(UnsafeMutableRawPointer(bitPattern: -2), "_os_activity_current"),
 													to: os_activity_t.self)
 /**
-Activity Tracing
+TracingActivity provides Apples Activity Tracing as part of Unified Logging for pure Swift applications.
+Creation of a tracing activity can fail, but all blocks will always be executed.
+The return values will inform if the code was executed inside the activity (success = true) or outside (in case the activity could not be created).
+Nesting of activities is encouraged for sub-tasks.
 
 Block-based activity tracing once:
 ```

@@ -11,7 +11,7 @@
 ![Ethereum](https://img.shields.io/badge/ethereum-0x25C93954ad65f1Bb5A1fd70Ec33f3b9fe72e5e58-yellowgreen.svg)
 ![Litecoin](https://img.shields.io/badge/litecoin-MPech47X9GjaatuV4sQsEzoMwGMxKzdXaH-lightgrey.svg)
 
-TracingActivity is a small swift package which provides Apples Activity Tracing as part of Unified Logging for pure Swift applications.
+TracingActivity provides Apples Activity Tracing as part of Unified Logging for pure Swift applications.
 Creation of a tracing activity can fail, but all blocks will always be executed.
 The return values will inform if the code was executed inside the activity (success = true) or outside (in case the activity could not be created).
 Nesting of activities is encouraged for sub-tasks.
