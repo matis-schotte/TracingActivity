@@ -8,17 +8,6 @@
 ![platform](https://img.shields.io/badge/platform-iOS%20|%20macOS%20|%20tvOS%20|%20watchOS-lightgrey.svg)
 [![Twitter](https://img.shields.io/badge/twitter-@matis_schotte-blue.svg)](http://twitter.com/matis_schotte)
 
-<!--
-[![Build Status](https://travis-ci.org/matis-schotte/Vifra.svg?branch=develop)](https://travis-ci.org/matis-schotte/Vifra)
-[![codebeat badge](https://codebeat.co/badges/d4b387f7-639d-4c96-b6d3-13538bb8151c)](https://codebeat.co/projects/github-com-matis-schotte-vifra-develop)
-[![codecov](https://codecov.io/gh/matis-schotte/Vifra/branch/develop/graph/badge.svg)](https://codecov.io/gh/matis-schotte/Vifra)
-[![Maintainability](https://api.codeclimate.com/v1/badges/ef99565e7d56efc70b4b/maintainability)](https://codeclimate.com/github/matis-schotte/Vifra/maintainability)
-[![Docs](https://matis-schotte.github.io/Vifra/badge.svg)](https://matis-schotte.github.io/Vifra/)
-
-[![Version](https://img.shields.io/cocoapods/v/Vifra.svg)](http://cocoapods.org/pods/Vifra)
-[![Open Source Helpers](https://www.codetriage.com/matis-schotte/vifra/badges/users.svg)](https://www.codetriage.com/matis-schotte/vifra)
--->
-
 ![Ethereum](https://img.shields.io/badge/ethereum-0x25C93954ad65f1Bb5A1fd70Ec33f3b9fe72e5e58-yellowgreen.svg)
 ![Litecoin](https://img.shields.io/badge/litecoin-MPech47X9GjaatuV4sQsEzoMwGMxKzdXaH-lightgrey.svg)
 
@@ -37,9 +26,10 @@ Nesting of activities is encouraged for sub-tasks.
 ## Installation
 ### Swift Package Manager
 
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It is in early development, but Vifra does support its use on supported platforms.
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
 
-Once you have your Swift package set up, adding Vifra as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+Add the Package URL `https://github.com/matis-schotte/TracingActivity.git` in Xcodes project viewer.
+Adding it to another Package as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
 
 ```swift
 dependencies: [
